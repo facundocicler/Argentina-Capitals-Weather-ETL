@@ -39,8 +39,8 @@ End-to-end pipeline que extrae datos meteorológicos en tiempo real para **todas
 
 ### 1. Clonar y entrar
 ```bash
-git clone https://github.com/tu-org/arg-weather-etl.git
-cd arg-weather-etl
+git clone https://github.com/tu-org/Argentina-Capitals-Weather-ETL.git
+cd Argentina-Capitals-Weather-ETL
 ```
 ### 2. Crear .env
 ```bash
