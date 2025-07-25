@@ -13,17 +13,17 @@ logging.basicConfig(
     wait=wait_exponential(multiplier=1, min=5, max=15),
     reraise=True
 )
-def fetch_single_location(api_key: str, loc: Dict[str, Any]) -> Dict[str, Any]:
+def fetch_single_location(api_key: str, locations: Dict[str, Any]) -> Dict[str, Any]:
     """
     Extrae datos del clima para una única ubicación.
     """
     url = "https://api.openweathermap.org/data/2.5/weather"
-    params = {"lat": loc["lat"], "lon": loc["lon"], "appid": api_key}
+    params = {"lat": locations["lat"], "lon": locations["lon"], "appid": api_key}
 
     response = requests.get(url, params=params, timeout=10)
     response.raise_for_status()
     data = response.json()
-    data["province"] = loc["province"]
+    data["province"] = locations["province"]
     return data
 
 def fetch_data(api_key: str, locations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
