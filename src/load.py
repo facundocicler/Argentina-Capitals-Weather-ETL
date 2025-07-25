@@ -1,8 +1,6 @@
 from typing import Any, Dict, List
 from pyspark.sql import DataFrame
 from pymongo.collection import Collection
-from datetime import timedelta, datetime, timezone
-from src.utils import parse_ingestion_datetime
 import logging
 
 logging.basicConfig(
@@ -13,33 +11,28 @@ logging.basicConfig(
 def load_to_mongo(collection: Collection, data: List[dict]) -> None:
     """
     Inserta múltiples documentos en MongoDB, evitando duplicados por ciudad
-    dentro de una ventana de 50 minutos.
+    dentro de una ventana de 45 minutos.
     """
    
-    collection.create_index([("name", 1), ("ingestion_datetime", -1)])
+    collection.create_index([("name", 1), ("dt", -1)])
 
     inserted_count = 0
     for doc in data:
         try:
-            doc.setdefault("ingestion_datetime",
-                           datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
+            city_name = doc.get("name")
+            city_dt = doc.get("dt")         # UNIX
 
-            city = doc.get("name")
-            new_time = parse_ingestion_datetime(doc["ingestion_datetime"])
-
-            latest_doc = collection.find_one(
-                {"name": city},
-                sort=[("ingestion_datetime", -1)]
+            latest = collection.find_one(
+                {"name": city_name},
+                sort=[("dt", -1)]
             )
 
-            if latest_doc:
-                last_time = parse_ingestion_datetime(latest_doc["ingestion_datetime"])
-                if (new_time - last_time) < timedelta(minutes=50):
-                    logging.info(f"[{city}] Ya existe un documento reciente. Salteando.")
-                    continue
+            if latest and (city_dt - latest["dt"]) < 2700:  # 45 min
+                logging.info(f"[{city_name}] Ya existe un registro reciente. Salteando.")
+                continue
 
             collection.insert_one(doc)
-            logging.info(f"[{city}] Insertado exitosamente.")
+            logging.info(f"[{city_name}] Insertado exitosamente.")
             inserted_count += 1
 
         except KeyError as e:
