@@ -59,7 +59,7 @@ MONGO_COLLECTION=raw_weather_data
 ```
 ### 3. Levantar todo
 ```bash
-d
+docker compose up --build -d
 ```
 
 ### 4. Ejecutar DAGs
