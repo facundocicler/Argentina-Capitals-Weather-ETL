@@ -64,7 +64,7 @@ def flatten_weather_df(df: DataFrame) -> DataFrame:
     """
     return df.select(
         col("id").alias("id"),
-        col("city").alias("city_name"),
+        col("name").alias("city_name"),
         col("province").alias("province"),
         col("sys").getField("country").alias("country"),
         col("coord").getField("lat").alias("latitude"),
