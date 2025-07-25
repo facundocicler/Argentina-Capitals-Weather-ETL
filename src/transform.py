@@ -84,6 +84,5 @@ def flatten_weather_df(df: DataFrame) -> DataFrame:
         col("visibility").alias("visibility_meters"),
         unix_to_ts_arg(col("sys").getField("sunrise")).alias("sunrise_ts"),
         unix_to_ts_arg(col("sys").getField("sunset")).alias("sunset_ts"),
-        unix_to_ts_arg(col("dt")).alias("date_time"),
-        from_utc_timestamp(col("ingestion_datetime"), 'America/Argentina/Buenos_Aires').alias("ingestion_datetime")
+        unix_to_ts_arg(col("dt")).alias("date_time")
     )
