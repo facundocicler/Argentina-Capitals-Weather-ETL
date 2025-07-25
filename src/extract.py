@@ -24,7 +24,6 @@ def fetch_single_location(api_key: str, loc: Dict[str, Any]) -> Dict[str, Any]:
     response.raise_for_status()
     data = response.json()
     data["province"] = loc["province"]
-    data["city"] = loc["city"]
     return data
 
 def fetch_data(api_key: str, locations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
