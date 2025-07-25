@@ -1,6 +1,5 @@
 import requests
 import logging
-from datetime import datetime, timezone
 from typing import Any, Dict, List
 from tenacity import retry, stop_after_attempt, wait_exponential, RetryError
 
@@ -26,7 +25,6 @@ def fetch_single_location(api_key: str, loc: Dict[str, Any]) -> Dict[str, Any]:
     data = response.json()
     data["province"] = loc["province"]
     data["city"] = loc["city"]
-    data["ingestion_datetime"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     return data
 
 def fetch_data(api_key: str, locations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
