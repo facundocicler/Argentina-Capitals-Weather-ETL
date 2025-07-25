@@ -25,6 +25,5 @@ CREATE TABLE IF NOT EXISTS argentina_weather_data (
   sunrise_ts            TIMESTAMP,
   sunset_ts             TIMESTAMP,
   date_time             TIMESTAMP,
-  ingestion_datetime    TIMESTAMP,
-  PRIMARY KEY (id, ingestion_datetime)
+  PRIMARY KEY (id, date_time)
 );
