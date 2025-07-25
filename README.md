@@ -193,5 +193,4 @@ arg-weather-etl/
 | `sunrise_ts`          | TIMESTAMP                  |
 | `sunset_ts`           | TIMESTAMP                  |
 | `date_time`           | TIMESTAMP                  |
-| `ingestion_datetime`  | TIMESTAMP                  |
 | **PK**                | `(id, ingestion_datetime)` |
