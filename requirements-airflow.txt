@@ -1,0 +1,8 @@
+apache-airflow==2.9.0
+python-dotenv==1.0.1
+requests==2.31.0
+docker==6.1.3
+pymongo==4.6.3
+pyspark==3.5.1
+PyMySQL==1.1.0
+tenacity==8.2.3
