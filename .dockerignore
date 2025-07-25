@@ -1,0 +1,36 @@
+# .dockerignore
+# ---- Git / CI ----
+.git
+.github
+.gitignore
+.gitattributes
+
+# ---- Python artefacts ----
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+venv/
+env/
+.pytest_cache/
+
+# ---- IDE / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Build / data (not needed inside image) ----
+data/
+logs/
+tmp/
+*.log
+*.csv
+*.parquet
+*.jsonl
+
+# ---- Docs ----
+README.md
+docs/
+*.md
