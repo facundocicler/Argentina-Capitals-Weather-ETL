@@ -7,6 +7,7 @@ from typing import cast, Dict, Any
 load_dotenv(dotenv_path="/opt/airflow/.env", override=True)
 
 def load_locations(path: str) -> list[dict]:
+    """Obtiene los datos del JSON."""
     with open(Path(path), "r", encoding="utf=8") as file:
         return json.load(file)
 
