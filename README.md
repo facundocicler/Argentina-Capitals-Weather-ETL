@@ -29,7 +29,7 @@ End-to-end pipeline que extrae datos meteorológicos en tiempo real para **todas
 ---
 
 ## 2. Arquitectura
-![Arquitectura del pipeline](docs/img/arquitectura 1.png)
+![Arquitectura del pipeline](docs/img/arquitectura.png)
 
 ## 3. Instalación rápida
 
