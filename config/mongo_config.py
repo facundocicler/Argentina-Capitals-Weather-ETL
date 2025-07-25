@@ -14,5 +14,5 @@ def connect_to_mongo(host: str, port: int, database: str, collection: str) -> Co
         db = client[database]
         return db[collection]
     except Exception as e:
-        logging.error(f"❌ Error al conectar con MongoDB: {e}")
+        logging.error(f"Error al conectar con MongoDB: {e}")
         raise
