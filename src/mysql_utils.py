@@ -20,12 +20,12 @@ def filter_new_records(spark: SparkSession, new_df: DataFrame, db_config: dict, 
             .option("password", db_config['password'])
             .option("driver", "com.mysql.cj.jdbc.Driver")
             .load()
-            .select("id", "ingestion_datetime")
+            .select("id", "date_time")
         )
 
         df_to_insert = new_df.join(
             existing_df,
-            on=["id", "ingestion_datetime"],
+            on=["id", "date_time"],
             how="left_anti"
         )
 
