@@ -29,8 +29,7 @@ class MySqlDDLOperator(BaseOperator):
             password=cfg["password"],
             charset="utf8mb4",
             autocommit=True,
-            # MULTI_STATEMENTS permite varias sentencias en una sola llamada
-            client_flag=CLIENT.MULTI_STATEMENTS,
+            client_flag=CLIENT.MULTI_STATEMENTS, # MULTI_STATEMENTS permite varias sentencias en una sola llamada
         )
         with conn.cursor() as cur:
             cur.execute(sql_text)
