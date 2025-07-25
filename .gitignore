@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Environment variables
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Airflow logs and metadata
+logs/
+airflow.db
+*.log
+*.pid
+*.err
+*.out
+*.sqlite
+
+# Docker
+*.pid
+*.tar
+*.gz
+*.bak
+*.swp
+docker-compose.override.yml
+
+# Parquet or data files
+*.parquet
+*.csv
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Other
+.DS_Store
