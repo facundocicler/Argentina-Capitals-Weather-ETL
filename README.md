@@ -23,7 +23,7 @@ End-to-end pipeline que extrae datos meteorológicos en tiempo real para **todas
 | **Carga raw** | MongoDB | Guarda JSON sin procesar; deduplicación por ciudad y ventana de 1 h. |
 | **Transformación** | PySpark | Aplanar, Kelvin → Celsius, Unix → timestamp, zona horaria de Buenos Aires. |
 | **Carga curada** | MySQL | Inserción incremental evitando duplicados mediante claves únicas `(id, ingestion_datetime)`. |
-| **Orquestación** | Airflow | 2 DAGs: `weather_ingest` (horario) y `weather_transform_load` (manual). |
+| **Orquestación** | Airflow | 2 DAGs: `weather_ingest` (ciclo de una hora) y `weather_transform_load` (manual). |
 | **Infraestructura** | Docker Compose | Mongo, MySQL, Postgres (metadatos Airflow) y Airflow.
 
 ---
