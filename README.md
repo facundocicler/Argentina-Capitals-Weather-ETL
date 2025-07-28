@@ -71,7 +71,7 @@ docker compose up --build -d
 
 ## 4. Estructura del proyecto
 ```md
-arg-weather-etl/
+Argentina-Capitals-Weather-ETL/
 ├── dags/
 │   ├── weather_ingest_dag.py
 │   └── weather_transform_load_dag.py
