@@ -166,7 +166,8 @@ Argentina-Capitals-Weather-ETL/
   "timezone": -10800,
   "id": 3432043,
   "name": "La Plata",
-  "cod": 200
+  "cod": 200,
+  "province": "Buenos Aires"
 }
 ```
 ### Curated (MySQL)
