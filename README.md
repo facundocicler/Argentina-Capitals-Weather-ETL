@@ -58,6 +58,11 @@ MONGO_DB=weather
 MONGO_COLLECTION=raw_weather_data
 ```
 ### 3. Levantar todo
+
+```bash
+docker network create app-net
+```
+
 ```bash
 docker compose up --build -d
 ```
