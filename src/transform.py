@@ -1,18 +1,19 @@
 import logging
 from pyspark.sql import SparkSession, DataFrame, Column
 from pyspark.sql.functions import col, when, from_unixtime, from_utc_timestamp, round as spark_round
+from typing import Dict
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-def transform_with_spark(spark: SparkSession) -> DataFrame:
+def transform_with_spark(spark: SparkSession, mongo_config: Dict[str, str]) -> DataFrame:
     """
     Carga los datos desde MongoDB y devuelve un DataFrame Spark
     """
     df = spark.read.format("mongodb") \
-        .option("uri", "mongodb://mongo:27017/bs_as_weather.raw_weather_data") \
+        .option("uri", f"mongodb://{mongo_config['host']}:{mongo_config['port']}/{mongo_config['database']}.{mongo_config['collection']}") \
         .load()
 
     if df is None or df.rdd.isEmpty():
