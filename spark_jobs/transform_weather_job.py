@@ -14,7 +14,7 @@ def main():
 
         spark = get_spark_session("TransformJob", mongo_config)
 
-        df = transform_with_spark(spark)
+        df = transform_with_spark(spark, , mongo_config)
 
         flat_df = flatten_weather_df(df)
         output_path = "/tmp/flat_weather_data.parquet"
