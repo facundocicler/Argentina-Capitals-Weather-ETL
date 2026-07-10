@@ -1,10 +1,10 @@
-# 🌦️ Argentina-Capitals Weather ETL
+# Argentina-Capitals Weather ETL
 
 End-to-end pipeline que extrae datos meteorológicos en tiempo real para **todas las capitales de provincia argentinas**, los almacena sin procesar en **MongoDB**, los transforma con **PySpark** y carga el dataset curado en **MySQL**. Orquestado con **Apache Airflow** y ejecutado en **Docker**.
 
 ---
 
-## 📑 Tabla de contenidos
+## Tabla de contenidos
 
 1. [Descripción general](#descripción-general)  
 2. [Arquitectura](#arquitectura)  
